@@ -26,6 +26,10 @@ void grid::draw_grid_place_snake(const int x ,const int y)
         //create grid
         for (int i = 0; i < y; i++)
         {
+            if(m_horizontal[position_on_x] == "X")
+            {
+                m_horizontal[position_on_x] = "o";
+            }
 
             std::cout << "" << std::endl;
             for ( int j = 0; j < x; j++)
