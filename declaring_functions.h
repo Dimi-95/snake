@@ -8,41 +8,40 @@
 
 private:
 
-std::vector<std::string> m_grid ;
+std::vector<std::string> m_vertical;
+std::vector<std::string> m_horizontal;
 char m_line_v = '|';
 char m_line_h = '_';
-int line_counter;
+
 
 public:
     void draw_grid(const int x ,const int y)
     {
-        
-        int grid_size = x*y;
-        std::cout << grid_size << std::endl;
-
-        for (int i = 0; i < grid_size; i++)
+        for (int i = 0; i < x; i++)
         {
-
-            m_grid.push_back("o");
+            m_horizontal.push_back("o");
         }
 
-    for (int i = 0; i < m_grid.size(); i++)
-    {
-        line_counter = x - 1; 
-        
-        std::cout << m_grid[i];
-        
-        if(i == line_counter)
+        for (int i = 0; i < y; i++)
         {
-            std::cout << " test space" << std::endl;
-            line_counter += x;
-          
+            m_vertical.push_back("o");
         }
-          
+
+        if (m_vertical.size() > 0 && m_horizontal.size() > 0)
+        {
+            std::cout << "Vectors have been filled" << std::endl;
+        }
+
+        for (int i = 0; i < y; i++)
+        {
+            std::cout << "" << std::endl;
+            for ( int j = 0; j < x; j++)
+            {
+                std::cout << m_horizontal[j]; 
+            }
+
+        }
 
     }
-
-    
-
-    }
+        
  };
