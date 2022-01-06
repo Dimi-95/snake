@@ -6,9 +6,11 @@
 
 int main(){
 
+
     grid grid;
 
-    grid.draw_grid(10, 10); //Input Grid Resolution
+    grid.draw_grid_place_snake(40, 10); //Input Grid Resolution
+
 
 
 
