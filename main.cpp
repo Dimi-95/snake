@@ -6,9 +6,9 @@
 
 int main(){
 
-    drawing_grid grid;
+    grid grid;
 
-    grid.output();
+    grid.draw_grid(10, 10); //Input Grid Resolution
 
 
 
