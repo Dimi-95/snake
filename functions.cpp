@@ -1,6 +1,6 @@
 #include "declaring_functions.h"
 
-void grid::draw_grid_place_snake(const int x ,const int y)
+void grid::draw_grid_place_snake(const int x ,const int y, int move_x, int move_y )
     {
         int position_on_y = y / 2;
         int position_on_x = x / 2;
@@ -26,9 +26,9 @@ void grid::draw_grid_place_snake(const int x ,const int y)
         //create grid
         for (int i = 0; i < y; i++)
         {
-            if(m_horizontal[position_on_x] == "X")
+            if(m_horizontal[position_on_x + move_x] == "X")
             {
-                m_horizontal[position_on_x] = "o";
+                m_horizontal[position_on_x + move_x] = "o";
             }
 
             std::cout << "" << std::endl;
@@ -37,7 +37,7 @@ void grid::draw_grid_place_snake(const int x ,const int y)
                 
                 if (i == position_on_y)
                 {
-                    m_horizontal[position_on_x] = "X";
+                    m_horizontal[position_on_x + move_x] = "X";
                 }
                 
                 std::cout << m_horizontal[j]; 
