@@ -5,8 +5,10 @@
 
 class movement
 {
-    int player_movement_x(std::string right, std::string left, int move_x);
-    int player_movement_y(std::string up, std::string down, int move_y);
+
+public:
+    int player_movement_x(int move_x);
+    int player_movement_y(int move_y);
 
 
 };

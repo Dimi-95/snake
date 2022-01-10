@@ -1,9 +1,10 @@
 #include "declaring_functions.h"
 
 void grid::draw_grid_place_snake(const int x ,const int y, int move_x, int move_y )
-    {
+    { 
         int position_on_y = y / 2;
         int position_on_x = x / 2;
+       
 
         //fill in the vector of the x axes - width
         for (int i = 0; i < x; i++)
@@ -47,6 +48,8 @@ void grid::draw_grid_place_snake(const int x ,const int y, int move_x, int move_
 
         }
         //seperate grid from input line
+        std::cout << std::endl;
+        std::cout << "wait 2s for Input cue";
         std::cout << std::endl;
 
         

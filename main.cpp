@@ -9,39 +9,55 @@
 std::string input;
 int move_x;
 int move_y;
+int move_x_counter = 0;
 
 int main(){
 
 while (true)
 {
+    std::cout << "Input next move" << std::endl;
     std::cin >> input;
 
     if (input == "w" || input == "a" || input == "s" || input == "d")
     {
         if(input == "a")
         {
+            std::cout << "a was pressed" << std::endl;
             move_x = -1;
             move_y = 0;
+
+            move_x_counter = move_x_counter + move_x;
+
+
         }
         else if (input == "d")
         {
+            std::cout << "a was pressed" << std::endl;
             move_x = +1;
             move_y = 0;
+
+            move_x_counter = move_x_counter + move_x;
         }
         
     }
-    
+    else
+    {
+        std::cout << "WRONG INPUT" << std::endl;
+    }
+
 
     grid grid;
-    movement movement;
+    //movement movement;
 
-    grid.draw_grid_place_snake(40, 10, move_x, move_y); //Input Grid Resolution
+    //movement.player_movement_x(move_x);
+
+    std::cout << move_x << std::endl;
+     
+    grid.draw_grid_place_snake(40, 10, move_x_counter, move_y); //Input Grid Resolution and snake movement
+
     //Sleep for one second
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-    //Delete everything in the console - loops and basically shows the most up to date state of the grid
-    std::cout << "\x1B[2J\x1B[H";
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 }
-
 
 
     return 0;
