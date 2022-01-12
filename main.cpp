@@ -3,13 +3,17 @@
 #include <thread>
 #include <chrono>
 #include <string>
+#include <cctype>
 
 //draw the outlines of the map
 
-std::string input;
+char input;
 int move_x;
 int move_y;
 int move_x_counter = 0;
+int move_y_counter = 0;
+
+
 
 int main(){
 
@@ -17,10 +21,11 @@ while (true)
 {
     std::cout << "Input next move" << std::endl;
     std::cin >> input;
+    input = std::tolower(input);
 
-    if (input == "w" || input == "a" || input == "s" || input == "d")
+    if (input == 'w' || input == 'a' || input == 's' || input == 'd')
     {
-        if(input == "a")
+        if(input == 'a')
         {
             std::cout << "a was pressed" << std::endl;
             move_x = -1;
@@ -30,19 +35,33 @@ while (true)
 
 
         }
-        else if (input == "d")
+        else if (input == 'd')
         {
-            std::cout << "a was pressed" << std::endl;
+            std::cout << "d was pressed" << std::endl;
             move_x = +1;
             move_y = 0;
 
             move_x_counter = move_x_counter + move_x;
         }
+        else if (input == 's')
+        {
+            std::cout << "s was pressed" << std::endl;
+            move_x = 0;
+            move_y = +1;
+            move_y_counter = move_y_counter + move_y;
+        }
+        else if (input == 'w')
+        {
+            std::cout << "w was pressed" << std::endl;
+            move_x = 0;
+            move_y = -1;
+            move_y_counter = move_y_counter + move_y;
+        }
         
     }
     else
     {
-        std::cout << "WRONG INPUT" << std::endl;
+        std::cout << "WRONG INPUT - TRY AGAIN" << std::endl;
     }
 
 
@@ -53,7 +72,7 @@ while (true)
 
     std::cout << move_x << std::endl;
      
-    grid.draw_grid_place_snake(40, 10, move_x_counter, move_y); //Input Grid Resolution and snake movement
+    grid.draw_grid_place_snake(40, 10, move_x_counter, move_y_counter); //Input Grid Resolution and snake movement
 
     //Sleep for one second
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));

@@ -6,7 +6,7 @@ void grid::draw_grid_place_snake(const int x ,const int y, int move_x, int move_
         int position_on_x = x / 2;
        
 
-        //fill in the vector of the x axes - width
+        //fill in the vector of the x axes - width e.g. 40 = 40 Os
         for (int i = 0; i < x; i++)
         {
 
@@ -25,19 +25,24 @@ void grid::draw_grid_place_snake(const int x ,const int y, int move_x, int move_
         // }
         
         //create grid
-        for (int i = 0; i < y; i++)
+        for (int i = 0; i < y; i++) // y = number of height
         {
-            if(m_horizontal[position_on_x + move_x] == "X")
+            if(m_horizontal[position_on_x + move_x] == "X") //if the vector, while itterating is on position x + the input position - the element in that vector will be X
             {
-                m_horizontal[position_on_x + move_x] = "o";
+                m_horizontal[position_on_x + move_x] = "o"; //else, the element will be "o". This is to prevent from all the vectors, in a row, to add X into that element slot (which basically creates a line from the top to the bottom)
             }
 
-            std::cout << "" << std::endl;
-            for ( int j = 0; j < x; j++)
+            std::cout << "" << std::endl; // I don't remember why I put this in but I am too afraid to remove it
+            for ( int j = 0; j < x; j++) //iterating through the width
             {
-                
-                if (i == position_on_y)
-                {
+                //while iterationg through the width, and outputting the content of the m_horizontal vector
+                //if i, which is incremented from the for loop this one is nested into, reaches
+                //the position_on_y(example: 40/2 = 20 <- the middle) position the "X" into the
+                //given element position of the horizontal_row 
+
+                if (i == position_on_y + move_y)//position_on_y is the middle of the grid and by adding move_y we can modify the position of the "X"
+                {                               // as it moves the placement of the "X" up or down. Since move_y has a counter on it that does not change unless modified
+                                                // we basically move the "X" Vertically and simulate movement this way
                     m_horizontal[position_on_x + move_x] = "X";
                 }
                 
