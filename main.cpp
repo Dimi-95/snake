@@ -43,7 +43,7 @@ while (true)
 
             move_x_counter = move_x_counter + move_x;
         }
-        else if (input == 's')
+         else if (input == 's')
         {
             std::cout << "s was pressed" << std::endl;
             move_x = 0;
