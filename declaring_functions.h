@@ -23,6 +23,6 @@ std::vector<std::string> m_vertical;
 std::vector<std::string> m_horizontal;
 
 public:
-    void draw_grid_place_snake(const int x ,const int y, int move_x, int move_y);
+    void draw_grid_place_snake(const int x ,const int y, int move_x, int move_y, int frame_counter);
     
 };
